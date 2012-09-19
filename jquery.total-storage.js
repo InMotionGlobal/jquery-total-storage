@@ -44,11 +44,11 @@
 
 ;(function($){
 
-	/* Variables I'll need throghout */
+	/* Variables I'll need throughout */
 
 	var ls = window.sessionStorage;
 	var supported;
-	if (typeof ls == 'undefined' || typeof window.JSON == 'undefined'){
+	if (typeof ls === 'undefined' || typeof window.JSON === 'undefined'){
 		supported = false;
 	} else {
 		supported = true;
@@ -80,7 +80,7 @@
 	$.totalStorage.impl = {
 		
 		init: function(key, value){
-			if (typeof value != 'undefined') {
+			if (typeof value !== 'undefined') {
 				return this.setItem(key, value);	
 			} else {
 				return this.getItem(key);
@@ -150,13 +150,13 @@
 			var ret;
 			try {
 				ret = JSON.parse(res);
-				if (ret == 'true'){
+				if (ret === 'true'){
 					ret = true;
 				}
-				if (ret == 'false'){
+				if (ret === 'false'){
 					ret = false;
 				}
-				if (parseFloat(ret) == ret){
+				if (parseFloat(ret) === ret){
 					ret = parseFloat(ret);
 				}
 			} catch(e){}
