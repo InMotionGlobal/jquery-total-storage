@@ -8,7 +8,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
  */
-;(function ($, document, undefined) {
+(function ($, document, undefined) {
 
 	var pluses = /\+/g;
 
@@ -83,11 +83,11 @@
  */
 
 /**
- * Create a local storage parameter
+ * Create a session storage parameter
  *
  == What makes it TOTAL Storage? ==
  
- * The browser doesn't support local storage it will fall-back to cookies! (Using the
+ * The browser doesn't support session storage it will fall-back to cookies! (Using the
    wonderful $.cookie plugin).
  * Send it strings, numbers even complex object arrays! TotalStorage does not care.
    Your efforts to defeat it will prove futile. 
@@ -118,7 +118,7 @@
 
 	/* Variables I'll need throghout */
 
-	var ls = window.localStorage;
+	var ls = window.sessionStorage;
 	var supported;
 	if (typeof ls == 'undefined' || typeof window.JSON == 'undefined'){
 		supported = false;
@@ -165,7 +165,7 @@
 					$.cookie(key, value);
 					return value;
 				} catch(e){
-					console.log('Local Storage not supported by this browser. Install the cookie plugin on your site to take advantage of the same functionality');
+					console.log('Session Storage not supported by this browser. Install the cookie plugin on your site to take advantage of the same functionality');
 				}
 			}
 			var saver = JSON.stringify(value);
